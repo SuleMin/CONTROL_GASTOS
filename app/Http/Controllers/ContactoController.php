@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Contacto;
 use Illuminate\Http\Request;
+use App\Mail\MessageReceived;
+use App\Contacto;
+use Illuminate\Support\Facades\Mail;
+
 
 class ContactoController extends Controller
 {
@@ -14,7 +17,8 @@ class ContactoController extends Controller
      */
     public function index()
     {
-        //
+        $datos=Contacto::all();
+        return view('contacto.index',compact('datos'));
     }
 
     /**
@@ -24,7 +28,7 @@ class ContactoController extends Controller
      */
     public function create()
     {
-        //
+        return view('contacto.create');
     }
 
     /**
@@ -35,51 +39,74 @@ class ContactoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            $message = request()->validate([
+                'name' =>'required',
+                'lastname' =>'required',
+                'number' =>'required',
+                'address' =>'required',
+                'cia' =>'required',
+
+            ]);
+            
+            Mail::to('sulemalucasmin@gamil.com')->queue( new MessageReceived($message));
+
+
+        $datos=Contacto::all();
+        return new MessageReceived($message);
+        return 'Mensaje enviado';
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Contacto  $contacto
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show(Contacto $contacto)
     {
-        //
+        return view ('contacto.show',compact('contacto'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Contacto  $contacto
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit(Contacto $contacto)
     {
-        //
+        return view ('contacto.edit', compact('contacto'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Contacto  $contacto
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Contacto $contacto)
     {
-        //
+        $contacto->nombre=$request->name;
+        $contacto->apellido=$request->lastname;
+        $contacto->telefono=$request->number;
+        $contacto->direccion=$request->address;
+        $contacto->ci=$request->cia;
+        $contacto->save();
+        $datos=Contacto::all();
+        return view('contacto.index', compact('datos'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Contacto  $contacto
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Contacto $contacto)
     {
-        //
+        $contacto->delete();
+        $datos=Contacto::all();
+        return view('contacto.index', compact('datos'));
     }
 }
