@@ -1,3 +1,6 @@
+@extends('layout.layouts')
+@section('title','ingreso')
+@section('content')
 <a href="/ingresos/create" class="btn btn-primary mb-2">Nuevo</a>
     <div class="row">
         @foreach ($datos as $ingreso)

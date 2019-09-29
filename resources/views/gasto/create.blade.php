@@ -1,3 +1,6 @@
+@extends('layout.layouts')
+@section('title','Gasto')
+@section('content')
 <h2>Registrar Gasto</h2> <br>
 <form action="/gastos" method="POST">
     @csrf
