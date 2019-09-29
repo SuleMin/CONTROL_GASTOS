@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::resource('/gastos', 'GastoController');
+Route::resource('/ingresos', 'IngresoController');

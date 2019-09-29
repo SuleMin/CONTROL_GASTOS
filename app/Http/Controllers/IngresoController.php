@@ -14,7 +14,8 @@ class IngresoController extends Controller
      */
     public function index()
     {
-        //
+        $datos=Ingreso::all();
+        return view('ingreso.index', compact('datos'));
     }
 
     /**
@@ -24,7 +25,7 @@ class IngresoController extends Controller
      */
     public function create()
     {
-        //
+        return view('ingreso.create');
     }
 
     /**
@@ -35,24 +36,31 @@ class IngresoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos= new Ingreso();
+        $datos->nombre_ingreso =$request->name_i;
+        $datos->descripcion_ingreso =$request->descripcion_i;
+        $datos->monto_ingreso =$request->monto_i;
+        $datos->fecha_ingreso =$request->fecha_i;
+        $datos->save();
+        $datos=Ingreso::all();
+        return view('ingreso.index', compact('datos'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Ingreso  $ingreso
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show(Ingreso $ingreso)
     {
-        //
+        return view('ingreso.show',compact('ingreso'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Ingreso  $ingreso
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit(Ingreso $ingreso)
@@ -64,7 +72,7 @@ class IngresoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Ingreso  $ingreso
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Ingreso $ingreso)
@@ -75,7 +83,7 @@ class IngresoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Ingreso  $ingreso
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Ingreso $ingreso)
