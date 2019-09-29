@@ -3,7 +3,7 @@
 <div class="card text-left">
     <div class="card-header">
         <div class="d-flex justify-content-between">
-            <p class="mt-2">DETALLE DEL INGRESO</p>
+            <p class="mt-2">DETALLE DEL INGRESO:</p>
             <div class="btn-group"> 
             <form action="/ingresos/{{ $ingreso->id }}/edit">
                     <button class="btn btn-success mr-2">EDITAR</button>

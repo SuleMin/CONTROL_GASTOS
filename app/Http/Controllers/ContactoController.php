@@ -49,11 +49,9 @@ class ContactoController extends Controller
             ]);
             
             Mail::to('sulemalucasmin@gamil.com')->queue( new MessageReceived($message));
+//return new MessageReceived($message); 
+return 'datos validados';
 
-
-        $datos=Contacto::all();
-        return new MessageReceived($message);
-        return 'Mensaje enviado';
     }
 
     /**
