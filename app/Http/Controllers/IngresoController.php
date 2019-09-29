@@ -65,7 +65,7 @@ class IngresoController extends Controller
      */
     public function edit(Ingreso $ingreso)
     {
-        //
+        return view('ingreso.edit',compact('ingreso'));
     }
 
     /**
@@ -77,7 +77,13 @@ class IngresoController extends Controller
      */
     public function update(Request $request, Ingreso $ingreso)
     {
-        //
+        $ingreso->nombre_ingreso =$request->name_i;
+        $ingreso->descripcion_ingreso =$request->descripcion_i;
+        $ingreso->monto_ingreso =$request->monto_i;
+        $ingreso->fecha_ingreso =$request->fecha_i;
+        $ingreso->save();
+        $datos=Ingreso::all();
+        return view('ingreso.index', compact('datos'));
     }
 
     /**
@@ -88,6 +94,8 @@ class IngresoController extends Controller
      */
     public function destroy(Ingreso $ingreso)
     {
-        //
+        $ingreso->delete();
+        $datos=Ingreso::all();
+        return view('ingreso.index', compact('datos'));
     }
 }

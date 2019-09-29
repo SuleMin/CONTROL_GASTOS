@@ -1,7 +1,7 @@
 @extends('layout.layouts')
 @section('title','ingreso')
 @section('content')
-<a href="/ingresos/create" class="btn btn-primary mb-2">Nuevo</a>
+<a href="/ingresos/create" class="btn btn-primary mb-2">NUEVO</a>
     <div class="row">
         @foreach ($datos as $ingreso)
             <div class="col-4">
@@ -16,7 +16,7 @@
                         <form action="/ingresos/{{ $ingreso->id }}">
                             @csrf 
                             @method('GET')
-                            <button class="btn btn-primary">Ver mas</button>
+                            <button class="btn btn-primary">Ver mas...</button>
                         </form>
                     </div>
                 </div>

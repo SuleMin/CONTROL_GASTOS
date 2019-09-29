@@ -16,13 +16,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                   <ul class="navbar-nav">
                     <li class="nav-item active">
-                      <a class="nav-link" href="/contactos">Contacto <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="/contactos">CONTACTOS <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/ingresos">Ingreso</a>
+                      <a class="nav-link" href="/ingresos">INGRESOS</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/gastos">Gasto</a>
+                      <a class="nav-link" href="/gastos">GASTOS</a>
                     </li>
                     
                   </ul>

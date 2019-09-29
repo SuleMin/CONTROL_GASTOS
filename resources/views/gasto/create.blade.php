@@ -1,17 +1,17 @@
 @extends('layout.layouts')
 @section('title','Gasto')
 @section('content')
-<h2>Registrar Gasto</h2> <br>
+<h2>REGISTRAR GASTO</h2> <br>
 <form action="/gastos" method="POST">
     @csrf
-    <p>Ingrese el nombre del gasto :</p>
+    <p>Nombre del gasto :</p>
     <input type="text" class="form-control" name="name_g"><br>
-    <p>Ingrese la fecha del gasto :</p>
+    <p>Fecha del gasto :</p>
     <input type="date" class="form-control" name="fecha_g"><br>
-    <p>Ingrese la descripcion del gasto :</p>
+    <p>Descripcion del gasto :</p>
     <input type="text" class="form-control" name="descripcion_g"><br>
-    <p>Ingrese el monto del gasto :</p>
+    <p>Monto del gasto :</p>
     <input type="text" class="form-control" name="monto_g"><br>
-    <button class="btn btn-primary">Guardar Gasto</button>
+    <button class="btn btn-primary">GUARDAR</button>
 </form>
 @endsection

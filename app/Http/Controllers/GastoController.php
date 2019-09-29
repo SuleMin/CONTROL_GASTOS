@@ -65,7 +65,7 @@ class GastoController extends Controller
      */
     public function edit(Gasto $gasto)
     {
-        //
+        return view('gasto.edit', compact('gasto'));
     }
 
     /**
@@ -77,7 +77,13 @@ class GastoController extends Controller
      */
     public function update(Request $request, Gasto $gasto)
     {
-        //
+        $gasto->nombre_gasto =$request->name_g;
+        $gasto->descripcion_gasto =$request->descripcion_g;
+        $gasto->monto_gasto =$request->monto_g;
+        $gasto->fecha_gasto =$request->fecha_g;
+        $gasto->save();
+        $datos=Gasto::all();
+        return view('gasto.index', compact('datos'));
     }
 
     /**
@@ -88,6 +94,8 @@ class GastoController extends Controller
      */
     public function destroy(Gasto $gasto)
     {
-        //
+       $gasto->delete();
+       $datos=Gasto::all();
+       return view('gasto.index', compact('datos'));
     }
 }

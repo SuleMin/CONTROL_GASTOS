@@ -1,8 +1,7 @@
-<html>
-    <head>
-        <title>gastos</title>
-    </head>
-    <body>
-        <p>pagina de gastos</p>
-    </body>
-</html>
+@extends(layoud)
+
+@section('title')
+Gastos
+@ensection
+
+@section()
