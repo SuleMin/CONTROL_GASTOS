@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::view('/', 'layouts')->name('layouts');
+route::get('/contacto','ContactoController@index')->name('contacto');
+Route::post('/contacto', 'ContactoController@store');
 Route::resource('/gastos', 'GastoController');
 Route::resource('/ingresos', 'IngresoController');
-Route::resource('/contactos', 'ContactoController');
+

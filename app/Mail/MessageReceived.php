@@ -9,22 +9,21 @@ use Illuminate\Queue\SerializesModels;
 
 class MessageReceived extends Mailable
 {
+    
     use Queueable, SerializesModels;
 
     public $subject = 'Mensaje Recibido';
-    public $msg;
 
+    public $msg;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-   
     public function __construct($msg)
     {
         $this->msg = $msg;  
     }
-
     /**
      * Build the message.
      *
