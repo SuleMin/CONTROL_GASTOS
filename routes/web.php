@@ -18,3 +18,15 @@ Route::post('/contacto', 'ContactoController@store');
 Route::resource('/gastos', 'GastoController');
 Route::resource('/ingresos', 'IngresoController');
 
+
+Route::get('/', function(){
+    return view('welcome');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Route::get ('/redirect','SocialController@redirect');
+Route::get ('/callback','SocialController@callback');
+
